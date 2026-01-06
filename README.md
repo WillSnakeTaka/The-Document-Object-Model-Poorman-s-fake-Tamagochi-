@@ -1,12 +1,12 @@
+## ✨ Live Demo
+
+👉 [Click here to play with the live app](https://willsnaketaka.github.io/The-Document-Object-Model/)
+
 # 🐾 The Document Object Model — Catified Task App
 
 Welcome to a joyful DOM-based web project that lets you organize your tasks with help from some very expressive HTTP cats 🐱.
 
 This project demonstrates practical JavaScript DOM manipulation, event handling, BOM use, and styling — all wrapped in a playful to-do list interface!
-
-## ✨ Live Demo
-
-👉 [Click here to play with the live app](https://willsnaketaka.github.io/The-Document-Object-Model/)
 
 ## 🎨 Features
 
