@@ -1,50 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const todoForm = document.getElementById('todoForm');
-    const todoInput = document.getElementById('todoInput');
-    const prioritySelect = document.getElementById('prioritySelect');
-    const todoList = document.getElementById('todoList');
-    const catImage = document.getElementById('catImage');
-    const clearCompletedButton = document.getElementById('clearCompleted');
+  const todoForm = document.getElementById('todoForm');
+  const todoInput = document.getElementById('todoInput');
+  const prioritySelect = document.getElementById('prioritySelect');
+  const todoList = document.getElementById('todoList');
+  const clearCompletedButton = document.getElementById('clearCompleted');
+  const catImage = document.getElementById('catImage');
 
-    // Cat Image Function
-    const fetchCatImage = async () => {
-        try {
-            const response = await fetch('https://api.thecatapi.com/v1/images/random');
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const data = await response.json();
-            catImage.src = data.url;
-        } catch (error) {
-            console.error('Error fetching cat image:', error);
-            catImage.src = 'https://placekitten.com/200/200'; // Fallback image
-        }
-    };
+  // ✅ Load a cat image
+  const randomStatus = [200, 201, 202, 204, 205, 206, 207];
+  const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
+  catImage.src = `https://http.cat/${status}.jpg`;
 
-    fetchCatImage(); // Initial cat image load
+  // ✅ Add a task
+  todoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-    todoForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+    const taskText = todoInput.value.trim();
+    const priority = prioritySelect.value;
 
-        const taskText = todoInput.value.trim();
-        const priority = prioritySelect.value;
+    if (taskText.length >= 2) {
+      const li = document.createElement('li');
+      li.textContent = taskText;
+      li.classList.add(priority);
+      li.setAttribute('data-priority', priority);
 
-        if (taskText !== "") {
-            const listItem = document.createElement('li');
-            listItem.textContent = taskText;
-            listItem.classList.add(priority); // Add priority class
+      // ✅ Toggle completion
+      li.addEventListener('click', () => {
+        li.classList.toggle('completed');
+        console.log('Toggled completed:', li.textContent);
+      });
 
-            listItem.addEventListener('click', () => {
-                listItem.classList.toggle('completed');
-            });
+      todoList.appendChild(li);
+      todoForm.reset();
+      alert("Task added!");
+    }
+  });
 
-            todoList.appendChild(listItem);
-            todoInput.value = "";
-        }
-    });
+  // ✅ Clear completed tasks
+  clearCompletedButton.addEventListener('click', () => {
+    const completedTasks = todoList.querySelectorAll('li.completed');
 
-    clearCompletedButton.addEventListener('click', () => {
-        const completedTasks = document.querySelectorAll('.completed');
-        completedTasks.forEach(task => task.remove());
-    });
+    if (completedTasks.length > 0) {
+      completedTasks.forEach(task => {
+        console.log('Removing completed:', task.textContent);
+        todoList.removeChild(task);
+      });
+    } else {
+      // If nothing is completed, clear all tasks to match user expectation of "clear"
+      while (todoList.firstChild) {
+        console.log('Clearing:', todoList.firstChild.textContent);
+        todoList.removeChild(todoList.firstChild);
+      }
+    }
+  });
 });
