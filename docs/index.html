@@ -29,11 +29,33 @@
     <button type="submit">Add</button>
   </form>
 
-  <ul id="todoList"></ul>
+  <section class="task-section">
+    <h2>Task Queue</h2>
+    <ul id="todoList"></ul>
+  </section>
+
+  <section class="task-section">
+    <h2>Completed Tasks</h2>
+    <ul id="completedList"></ul>
+  </section>
 
   <button type="button" id="clearCompleted">Clear Completed Tasks</button>
+
+  <div id="tamagotchi" aria-live="polite">
+    <div class="pet">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="body"></div>
+      <div class="tail"></div>
+    </div>
+    <p class="pet-caption">Task complete! Your cat is happy.</p>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
- 
