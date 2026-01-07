@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const catImage = document.getElementById('catImage');
   const tamagotchi = document.getElementById('tamagotchi');
 
-  // Load a cat image
+  // ✅ Load a cat image
   const randomStatus = [200, 201, 202, 204, 205, 206, 207];
   const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
   catImage.src = `https://http.cat/${status}.jpg`;
 
-  // Add a task
+  // ✅ Add a task
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Clear completed tasks
+  // ✅ Clear completed tasks
   clearCompletedButton.addEventListener('click', () => {
     const completedTasks = completedList.querySelectorAll('li');
 
