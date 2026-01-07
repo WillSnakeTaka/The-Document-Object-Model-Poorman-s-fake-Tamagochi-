@@ -1,6 +1,11 @@
 body {
-  font-family: sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   margin: 20px;
+  background-image: url("../catBackground.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #1b1b1b;
 }
 
 header {
@@ -33,6 +38,7 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 button:hover {
@@ -50,7 +56,10 @@ li {
   font-size: 16px;
   border-bottom: 1px solid #eee;
   background-color: #f9f9f9;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 li:last-child {
@@ -72,4 +81,197 @@ li:last-child {
 
 .low {
   background-color: #e8f5e9;
+}
+
+.task-section {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.task-section h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.complete-button {
+  background-color: #ff8a65;
+}
+
+.complete-button:hover {
+  background-color: #f26c4f;
+}
+
+#clearCompleted {
+  margin-bottom: 20px;
+}
+
+#tamagotchi {
+  max-width: 360px;
+  margin: 0 auto 40px;
+  text-align: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+#tamagotchi.happy {
+  opacity: 1;
+}
+
+.pet {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 10px;
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.pet .ear {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ffd9b3;
+  border: 3px solid #2a1a16;
+  border-radius: 6px;
+  top: -6px;
+}
+
+.pet .ear.left {
+  left: 16px;
+  transform: rotate(-10deg);
+}
+
+.pet .ear.right {
+  right: 16px;
+  transform: rotate(10deg);
+}
+
+.pet .face {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 40px;
+  background: #ffe8c7;
+  border: 3px solid #2a1a16;
+  border-radius: 20px;
+}
+
+.pet .eye {
+  position: absolute;
+  top: 32px;
+  width: 12px;
+  height: 18px;
+  background: #2a1a16;
+  border-radius: 50%;
+}
+
+.pet .eye.left {
+  left: 34px;
+}
+
+.pet .eye.right {
+  right: 34px;
+}
+
+.pet .mouth {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  width: 22px;
+  height: 10px;
+  border: 3px solid #2a1a16;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  transform: translateX(-50%);
+}
+
+.pet .body {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  height: 54px;
+  background: #ffd9b3;
+  border: 3px solid #2a1a16;
+  border-radius: 18px;
+}
+
+.pet .tail {
+  position: absolute;
+  right: -8px;
+  bottom: 20px;
+  width: 28px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffd9b3;
+  border: 3px solid #2a1a16;
+  transform: rotate(18deg);
+}
+
+.pet-caption {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#tamagotchi.happy .pet {
+  animation: celebrate 0.7s ease-in-out 2, float 3.2s ease-in-out infinite;
+}
+
+#tamagotchi.happy .pet .tail {
+  animation: wag 0.2s ease-in-out 6;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes celebrate {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes wag {
+  0% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+  100% {
+    transform: rotate(12deg);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 16px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
