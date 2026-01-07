@@ -1,7 +1,7 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   margin: 20px;
-  background-image: url("../catBackground.png");
+  background-image: url("../img/catBackground.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
