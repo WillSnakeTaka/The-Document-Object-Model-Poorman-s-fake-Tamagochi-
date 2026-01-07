@@ -3,15 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const todoInput = document.getElementById('todoInput');
   const prioritySelect = document.getElementById('prioritySelect');
   const todoList = document.getElementById('todoList');
+  const completedList = document.getElementById('completedList');
   const clearCompletedButton = document.getElementById('clearCompleted');
   const catImage = document.getElementById('catImage');
+  const tamagotchi = document.getElementById('tamagotchi');
 
-  //  Load a cat image
+  // ✅ Load a cat image
   const randomStatus = [200, 201, 202, 204, 205, 206, 207];
   const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
   catImage.src = `https://http.cat/${status}.jpg`;
 
-  // Add a task
+  // ✅ Add a task
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -20,37 +22,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (taskText.length >= 2) {
       const li = document.createElement('li');
-      li.textContent = taskText;
       li.classList.add(priority);
       li.setAttribute('data-priority', priority);
 
-      // Toggle completion
-      li.addEventListener('click', () => {
-        li.classList.toggle('completed');
-        console.log('Toggled completed:', li.textContent);
+      const textSpan = document.createElement('span');
+      textSpan.className = 'task-text';
+      textSpan.textContent = taskText;
+
+      const completeButton = document.createElement('button');
+      completeButton.type = 'button';
+      completeButton.className = 'complete-button';
+      completeButton.textContent = 'Complete';
+
+      completeButton.addEventListener('click', () => {
+        li.classList.add('completed');
+        li.removeChild(completeButton);
+        completedList.appendChild(li);
+        triggerTamagotchi();
       });
+
+      li.appendChild(textSpan);
+      li.appendChild(completeButton);
 
       todoList.appendChild(li);
       todoForm.reset();
-      alert("Task added!");
     }
   });
 
-  //  Clear completed tasks
+  // ✅ Clear completed tasks
   clearCompletedButton.addEventListener('click', () => {
-    const completedTasks = todoList.querySelectorAll('li.completed');
+    const completedTasks = completedList.querySelectorAll('li');
 
     if (completedTasks.length > 0) {
-      completedTasks.forEach(task => {
+      completedTasks.forEach((task) => {
         console.log('Removing completed:', task.textContent);
-        todoList.removeChild(task);
+        completedList.removeChild(task);
       });
-    } else {
-      // If nothing is completed, clear all tasks to match user expectation of "clear"
-      while (todoList.firstChild) {
-        console.log('Clearing:', todoList.firstChild.textContent);
-        todoList.removeChild(todoList.firstChild);
-      }
     }
   });
+
+  function triggerTamagotchi() {
+    tamagotchi.classList.add('happy');
+    window.setTimeout(() => {
+      tamagotchi.classList.remove('happy');
+    }, 1400);
+  }
 });
