@@ -13,7 +13,7 @@ This project demonstrates practical JavaScript DOM manipulation, event handling,
 - ✅ Add tasks with selectable priority (low, medium, high)
 - ✅ Click to mark as completed (strikes through)
 - ✅ Clear all completed tasks with one button
-- ✅ Random [http.cat](https://http.cat) image loads on every page refresh
+- ✅ Random Cat image loads on every page refresh
 - ✅ Responsive layout and intuitive design
 - ✅ No external libraries — just pure HTML, CSS, and JavaScript!
 
