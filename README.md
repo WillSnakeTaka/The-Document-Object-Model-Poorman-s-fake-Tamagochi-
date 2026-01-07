@@ -21,7 +21,7 @@ This project demonstrates practical JavaScript DOM manipulation, event handling,
 
 - HTML5
 - CSS3
-- JavaScript (DOM + BOM APIs)
+- JavaScript (DOM)
 - Git + GitHub Pages
 
 
