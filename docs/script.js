@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearCompletedButton = document.getElementById('clearCompleted');
   const catImage = document.getElementById('catImage');
 
-  // ✅ Load a cat image
+  //  Load a cat image
   const randomStatus = [200, 201, 202, 204, 205, 206, 207];
   const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
   catImage.src = `https://http.cat/${status}.jpg`;
 
-  // ✅ Add a task
+  // Add a task
   todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       li.classList.add(priority);
       li.setAttribute('data-priority', priority);
 
-      // ✅ Toggle completion
+      // Toggle completion
       li.addEventListener('click', () => {
         li.classList.toggle('completed');
         console.log('Toggled completed:', li.textContent);
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ✅ Clear completed tasks
+  //  Clear completed tasks
   clearCompletedButton.addEventListener('click', () => {
     const completedTasks = todoList.querySelectorAll('li.completed');
 
