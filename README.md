@@ -1,6 +1,6 @@
 ## ✨ Live Demo
 
-👉 [Click here to see the project](https://willsnaketaka.github.io/The-Document-Object-Model/)
+👉 [Click here to see the project](https://willsnaketaka.github.io/The-Document-Object-Model-Poorman-s-fake-Tamagochi-/)  
 
 # 🐾 The Document Object Model — Catified Task App
 
